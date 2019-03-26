@@ -1,4 +1,5 @@
 import java.time.*;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class EntradaFoto
         usuario = autor;
         urlImagen = url;
         this.titulo = titulo;
+        ArrayList<String> comentarios = new ArrayList<String>();
+        cantidadMeGusta = 0;
+        momentoPublicacion = LocalDateTime.now();
     }
     
     public void meGusta()
