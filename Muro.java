@@ -29,17 +29,17 @@ public class Muro
     public String toString()
     {
         String contenidoMuro = "No hay entradas";
-        if (mensajes != null || fotos != null)
+        if (mensajes.size() > 0 || fotos.size() > 0)
         {
             contenidoMuro = "";
-            if (mensajes != null){
+            if (mensajes.size() == 0){
                 contenidoMuro += "=============== Mensajes ===============\n";
                 for (EntradaTexto entrada: mensajes){
                     contenidoMuro += entrada.toString() + "\n";
                 }
                 contenidoMuro += "======================================\n\n";
             }
-            if (fotos != null){
+            if (fotos.size() == 0){
                 contenidoMuro += "=============== Fotos ===============\n";
                 for (EntradaFoto entrada: fotos){
                     contenidoMuro += entrada.toString() + "\n";
