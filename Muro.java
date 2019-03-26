@@ -11,20 +11,41 @@ public class Muro
      */
     public Muro()
     {
+        ArrayList<EntradaTexto> mensajes = new ArrayList<EntradaTexto>();
+        ArrayList<EntradaFoto> fotos = new ArrayList<EntradaFoto>();
     }
-    
+
     public void addEntradaTexto(EntradaTexto entradaTexto)
     {
-        
+        mensajes.add(entradaTexto);
     }
-    
+
     public void addEntradaFoto(EntradaFoto entradaFoto)
     {
-        
+        fotos.add(entradaFoto);
     }
-    
+
     public String toString()
     {
-        return "";
+        String contenidoMuro = "No hay entradas";
+        if (mensajes != null || fotos != null)
+        {
+            contenidoMuro = "";
+            if (mensajes != null){
+                contenidoMuro += "=============== Mensajes ===============\n";
+                for (EntradaTexto entrada: mensajes){
+                    contenidoMuro += entrada.toString() + "\n";
+                }
+                contenidoMuro += "======================================\n\n";
+            }
+            if (fotos != null){
+                contenidoMuro += "=============== Fotos ===============\n";
+                for (EntradaFoto entrada: fotos){
+                    contenidoMuro += entrada.toString() + "\n";
+                }
+                contenidoMuro += "======================================";
+            }
+        }
+        return contenidoMuro;
     }
 }
