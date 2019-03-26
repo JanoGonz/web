@@ -3,7 +3,6 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class EntradaTexto
 {
     // instance variables - replace the example below with your own
@@ -24,45 +23,49 @@ public class EntradaTexto
         cantidadMeGusta = 0;
         momentoPublicacion = LocalDateTime.now();
     }
-    
+
     public void meGusta()
     {
         cantidadMeGusta++;
     }
-    
+
     public void addComentario(String text)
     {
         comentarios.add(text);
     }
-    
+
     public String getMensaje()
     {
         return mensaje;
     }
-    
+
     public LocalDateTime getMomentoPublicacion()
     {
         return momentoPublicacion;
     }
-    
+
     public String toString()
     {
         String post = "";
         post += usuario + " - ";
         Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
         Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
-        if (dateAgo.toMinutes() < 60){
-            post += "Hace " + dateAgo.toMinutes() + " minutos\n\n";
+        if (dateAgo.getSeconds() < 60){
+            post += "Hace " + dateAgo.getSeconds() + " segundos\n\n";
         } else {
-            if (dateAgo.toHours() < 24){
-                post += "Hace " + dateAgo.toHours() + " horas\n\n";
+            if (dateAgo.toMinutes() < 60){
+                post += "Hace " + dateAgo.toMinutes() + " minutos\n\n";
             } else {
-                post += "Hace " + period.getDays() + " días\n\n";
+                if (dateAgo.toHours() < 24){
+                    post += "Hace " + dateAgo.toHours() + " horas\n\n";
+                } else {
+                    post += "Hace " + period.getDays() + " días\n\n";
+                }
             }
         }
         post += mensaje + "\n--------------------------\n";
-        if (comentarios == null) {
-           post += "No hay comentarios\n";
+        if (comentarios.size() == 0) {
+            post += "No hay comentarios\n";
         } else {
             post += "Comentarios:\n";
             for (String mensaje: comentarios){
@@ -70,8 +73,7 @@ public class EntradaTexto
             }
         }
         post += "--------------------------------------\n";
-        post += cantidadMeGusta + " me gusta";
-        System.out.println(post);
+        post += cantidadMeGusta + " me gusta\n";
         return post;
     }
 }

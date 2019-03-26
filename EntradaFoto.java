@@ -19,7 +19,7 @@ public class EntradaFoto
         usuario = autor;
         urlImagen = url;
         this.titulo = titulo;
-        ArrayList<String> comentarios = new ArrayList<String>();
+        comentarios = new ArrayList<String>();
         cantidadMeGusta = 0;
         momentoPublicacion = LocalDateTime.now();
     }
@@ -31,6 +31,7 @@ public class EntradaFoto
     
     public void addComentario(String text)
     {
+        comentarios.add(text);
     }
     
     public String getUrlImagen()
@@ -50,6 +51,35 @@ public class EntradaFoto
     
     public String toString()
     {
-        return "";
+        String post = "";
+        post += usuario + " - ";
+        Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
+        Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
+        if (dateAgo.getSeconds() < 60){
+            post += "Hace " + dateAgo.getSeconds() + " segundos\n\n";
+        } else {
+            if (dateAgo.toMinutes() < 60){
+                post += "Hace " + dateAgo.toMinutes() + " minutos\n\n";
+            } else {
+                if (dateAgo.toHours() < 24){
+                    post += "Hace " + dateAgo.toHours() + " horas\n\n";
+                } else {
+                    post += "Hace " + period.getDays() + " días\n\n";
+                }
+            }
+        }
+        post += titulo + " - " + urlImagen + "\n--------------------------\n";
+        if (comentarios.size() == 0) {
+           post += "No hay comentarios\n";
+        } else {
+            post += "Comentarios:\n";
+            for (String mensaje: comentarios){
+                post += mensaje + "\n";
+            }
+        }
+        post += "--------------------------------------\n";
+        post += cantidadMeGusta + " me gusta\n";
+        System.out.println(post);
+        return post;
     }
 }

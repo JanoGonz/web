@@ -12,8 +12,8 @@ public class Muro
      */
     public Muro()
     {
-        ArrayList<EntradaTexto> mensajes = new ArrayList<EntradaTexto>();
-        ArrayList<EntradaFoto> fotos = new ArrayList<EntradaFoto>();
+        mensajes = new ArrayList<EntradaTexto>();
+        fotos = new ArrayList<EntradaFoto>();
     }
 
     public void addEntradaTexto(EntradaTexto entradaTexto)
@@ -47,6 +47,7 @@ public class Muro
                 contenidoMuro += "======================================";
             }
         }
+        System.out.println(contenidoMuro);
         return contenidoMuro;
     }
 }
