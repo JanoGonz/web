@@ -32,14 +32,14 @@ public class Muro
         if (mensajes.size() > 0 || fotos.size() > 0)
         {
             contenidoMuro = "";
-            if (mensajes.size() == 0){
+            if (mensajes.size() > 0){
                 contenidoMuro += "=============== Mensajes ===============\n";
                 for (EntradaTexto entrada: mensajes){
                     contenidoMuro += entrada.toString() + "\n";
                 }
                 contenidoMuro += "======================================\n\n";
             }
-            if (fotos.size() == 0){
+            if (fotos.size() > 0){
                 contenidoMuro += "=============== Fotos ===============\n";
                 for (EntradaFoto entrada: fotos){
                     contenidoMuro += entrada.toString() + "\n";
