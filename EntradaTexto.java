@@ -50,20 +50,10 @@ public class EntradaTexto
         post += usuario + " - ";
         Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
         Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
-        if (dateAgo.getSeconds() < 60){
-            post += "Hace " + dateAgo.getSeconds() + " segundos\n\n";
-        } else {
-            if (dateAgo.toMinutes() < 60){
-                post += "Hace " + dateAgo.toMinutes() + " minutos\n\n";
-            } else {
-                if (dateAgo.toHours() < 24){
-                    post += "Hace " + dateAgo.toHours() + " horas\n\n";
-                } else {
-                    post += "Hace " + period.getDays() + " días\n\n";
-                }
-            }
-        }
-        post += mensaje + "\n--------------------------\n";
+ 
+        post += "Hace 10 segundos\n\n";
+
+        post += mensaje + "\n";
         if (comentarios.size() == 0) {
             post += "No hay comentarios\n";
         } else {
@@ -72,7 +62,6 @@ public class EntradaTexto
                 post += mensaje + "\n";
             }
         }
-        post += "--------------------------------------\n";
         post += cantidadMeGusta + " me gusta\n";
         return post;
     }

@@ -37,14 +37,12 @@ public class Muro
                 for (EntradaTexto entrada: mensajes){
                     contenidoMuro += entrada.toString() + "\n";
                 }
-                contenidoMuro += "======================================\n\n";
             }
             if (fotos.size() > 0){
                 contenidoMuro += "=============== Fotos ===============\n";
                 for (EntradaFoto entrada: fotos){
                     contenidoMuro += entrada.toString() + "\n";
                 }
-                contenidoMuro += "======================================";
             }
         }
         System.out.println(contenidoMuro);
