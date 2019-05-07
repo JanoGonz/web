@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=EntradaEvento
+comment1.params=autor\ texto
+comment1.target=EntradaEvento(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EntradaTexto\r\n
+comment2.params=
+comment2.target=void\ meGustaLaEntrada()
+comment3.params=
+comment3.target=java.lang.String\ getMensaje()
+comment4.params=
+comment4.target=java.time.LocalDateTime\ getMomentoPublicacion()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=
+comment6.target=void\ mostrarPorPantalla()
+numComments=7

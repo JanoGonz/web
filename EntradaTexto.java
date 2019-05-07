@@ -3,35 +3,26 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntradaTexto
+public class EntradaTexto extends Comentarios
 {
-    // instance variables - replace the example below with your own
-    private String usuario;
     private String mensaje;
-    private LocalDateTime momentoPublicacion;
-    private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
-
     /**
      * Constructor for objects of class EntradaTexto
      */
     public EntradaTexto(String autor, String texto)
     {
-        usuario = autor;
+        super(autor);
         mensaje = texto;
-        comentarios = new ArrayList<String>();
-        cantidadMeGusta = 0;
-        momentoPublicacion = LocalDateTime.now();
     }
 
-    public void meGusta()
+    public void meGustaLaEntrada()
     {
-        cantidadMeGusta++;
+        meGusta();
     }
 
     public void addComentario(String text)
     {
-        comentarios.add(text);
+        addComent(text);
     }
 
     public String getMensaje()
@@ -39,30 +30,27 @@ public class EntradaTexto
         return mensaje;
     }
 
-    public LocalDateTime getMomentoPublicacion()
+    public LocalDateTime getMomento()
     {
-        return momentoPublicacion;
+        return getMomentoPublicacion();
     }
 
     public String toString()
     {
-        String post = "";
-        post += usuario + " - ";
-        Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
-        Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
- 
-        post += "Hace 10 segundos\n\n";
-
-        post += mensaje + "\n";
-        if (comentarios.size() == 0) {
-            post += "No hay comentarios\n";
-        } else {
-            post += "Comentarios:\n";
-            for (String mensaje: comentarios){
-                post += mensaje + "\n";
-            }
-        }
-        post += cantidadMeGusta + " me gusta\n";
+        super.toString();
+        String post = super.toString() + mensaje + "\n" ;
         return post;
+    }
+    public void mostrarPorPantalla(){
+        System.out.println(toString());
+    }
+    
+    public String toHtml(){
+        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>\n";
+        stringHtml += "<p>" + getMensaje() + "</p>\n";
+        stringHtml += "\n<p>" + getMeGusta() + "<img src = \"like.png\"></img></p>";
+        stringHtml += getComentariosHtml();
+        stringHtml += "</div>";
+        return stringHtml;
     }
 }

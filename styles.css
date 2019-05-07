@@ -1,0 +1,42 @@
+body {
+	font-family: "roboto", "verdana", "arial";
+}
+.navbar {
+	overflow: hidden;
+	background-color: #339cff;
+	position: fixed;
+	top: 0;
+	width: 110%;
+	margin-left: -10px;
+}
+
+.navbar a {
+	float: left;
+	display: block;
+	padding: 14px 16px;
+}
+
+.main  {
+	margin-top: 60px;
+}
+
+.post {
+	padding: 14px 16px;
+	margin: auto;
+	margin-top: 10px;
+	width: 80%;
+	background-color: #b3daff;
+	border-radius: 5px;
+}
+
+.comentarios {
+	margin-left: 15px;
+	margin-right: 30%;
+}
+
+.single-comment {
+	border-style: solid;
+	border-width: 1px 0px 0px 0px;
+	border-color: white;
+	padding-top: 5px;
+}

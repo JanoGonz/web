@@ -1,39 +1,8 @@
-import java.time.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
 import java.io.*;
+import java.util.ArrayList;
 
-public class Muro
-{
-    private ArrayList<Entrada> entradas;
-    /**
-     * Constructor for objects of class Muro
-     */
-    public Muro()
-    {
-        entradas = new ArrayList<Entrada>();
-    }
-    
-    public void addEntrada(Entrada entrada)
-    {
-        entradas.add(entrada);
-    }
-    
-    public String toString(){
-        String contenidoMuro = "";
-        for (Entrada entradaActual: entradas){
-            contenidoMuro += entradaActual.toString() + "\n";
-        }
-        System.out.println(contenidoMuro);
-        return contenidoMuro;
-    }
-    
-    public ArrayList<Entrada> getEntradas(){
-        return entradas;
-    }
-    
-    public void muroHtml(){
+public abstract class muroToHtml extends Muro{
+    public void main(String [] arg){
         FileWriter archivo = null;
         PrintWriter pr = null;
         try {
@@ -41,10 +10,8 @@ public class Muro
             pr = new PrintWriter (archivo);
             String head = "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>CaraBook</title>	<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\"></head><body><div class = \"navbar\"><a>Inicio</a></div><div class = \"main\">";
             pr.println(head);
-            String contenidoEntrada = "";
             for(Entrada entradaActual: getEntradas()){
-                contenidoEntrada = entradaActual.toHtml();
-                pr.append(contenidoEntrada);
+                pr.append(entradaActual.toHtml());
             }
             String bottom = "</div></body></html>";
             pr.append(bottom);

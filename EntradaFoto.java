@@ -3,35 +3,28 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntradaFoto
+public class EntradaFoto extends Comentarios
 {
-    private String usuario;
     private String urlImagen;
     private String titulo;
-    private LocalDateTime momentoPublicacion;
-    private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
     /**
      * Constructor for objects of class EntradaFoto
      */
     public EntradaFoto(String autor, String url, String titulo)
     {
-        usuario = autor;
+        super(autor);
         urlImagen = url;
         this.titulo = titulo;
-        comentarios = new ArrayList<String>();
-        cantidadMeGusta = 0;
-        momentoPublicacion = LocalDateTime.now();
     }
     
-    public void meGusta()
+    public void meGustaLaEntrada()
     {
-        cantidadMeGusta++;
+        meGusta();
     }
     
     public void addComentario(String text)
     {
-        comentarios.add(text);
+        addComent(text);
     }
     
     public String getUrlImagen()
@@ -44,29 +37,29 @@ public class EntradaFoto
         return titulo;
     }
     
-    public LocalDateTime getMomentoPublicacion()
+    public LocalDateTime getMomento()
     {
-        return momentoPublicacion;
+        return getMomentoPublicacion();
     }
     
     public String toString()
     {
-        String post = "";
-        post += usuario + " - ";
-        Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
-        Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
-        post += "Hace 10 segundos\n\n";
-        post += titulo + " - " + urlImagen + "\n";
-        if (comentarios.size() == 0) {
-           post += "No hay comentarios\n";
-        } else {
-            post += "Comentarios:\n";
-            for (String mensaje: comentarios){
-                post += mensaje + "\n";
-            }
-        }
-        post += cantidadMeGusta + " me gusta\n";
-        System.out.println(post);
+        String post = super.toString() + urlImagen + "\n" + titulo + "\n";
         return post;
     }
+    
+    public void mostrarPorPantalla(){
+        System.out.println(toString());
+    }
+    
+    public String toHtml(){
+        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>\n";
+        stringHtml += "<p>" + getTituloImagen() + "</p>\n";
+        stringHtml += "<img src=\""+ getUrlImagen() + "\">";
+        stringHtml += "<p>" + getMeGusta() + "<img src = \"like.png\"></p>";
+        stringHtml += getComentariosHtml();
+        stringHtml += "</div>";
+        return stringHtml;
+    }
+
 }

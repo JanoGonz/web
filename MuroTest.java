@@ -13,6 +13,29 @@ import org.junit.Test;
  */
 public class MuroTest
 {
+    private muroToHtml muroToHt1;
+    private EntradaFoto entradaF1;
+    private EntradaTexto entradaT1;
+    private muroToHtml muroToHt2;
+    private Muro muro1;
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+
     /**
      * Default constructor for test class MuroTest
      */
@@ -28,6 +51,22 @@ public class MuroTest
     @Before
     public void setUp()
     {
+        entradaF1 = new EntradaFoto("Autor foto", "https://i.imgur.com/fE3vtOp.jpg", "Titulo foto");
+        entradaF1.addComentario("Comentario 1");
+        entradaF1.addComentario("Comentario 2");
+        entradaF1.meGustaLaEntrada();
+        entradaF1.meGustaLaEntrada();
+        entradaF1.meGustaLaEntrada();
+        entradaT1 = new EntradaTexto("Autor texto", "Texto");
+        entradaT1.addComentario("Comentario xd");
+        entradaT1.addComentario("Comentario 2");
+        entradaT1.addComentario("Comentario 3");
+        entradaT1.meGustaLaEntrada();
+        muro1 = new Muro();
+        muro1.muroHtml();
+        muro1.muroHtml();
+        muro1.addEntrada(entradaT1);
+        muro1.addEntrada(entradaF1);
     }
 
     /**
@@ -39,19 +78,4 @@ public class MuroTest
     public void tearDown()
     {
     }
-    @Test
-    public void test01() {
-        Muro muroNuevo = new Muro();
-        EntradaTexto entrada1 = new EntradaTexto("Pepito", "Hola");
-        EntradaTexto entrada2 = new EntradaTexto("Juancar", "Esos");
-        EntradaFoto entrada3 = new EntradaFoto("Juanito", "https:imgur.com/yup", "SUP BROS");
-        EntradaFoto entrada4 = new EntradaFoto("Jhonny", "https:gyazo.com/4y6z3ww", "FOTON");
-        muroNuevo.addEntradaTexto(entrada1);
-        muroNuevo.addEntradaFoto(entrada3);
-        muroNuevo.addEntradaFoto(entrada4);
-        muroNuevo.addEntradaTexto(entrada2);
-        String resultadoEsperado = "=============== Mensajes ===============\nPepito - Hace 10 segundos\n\nHola\nNo hay comentarios\n0 me gusta\n\nJuancar - Hace 10 segundos\n\nEsos\nNo hay comentarios\n0 me gusta\n\n=============== Fotos ===============\nJuanito - Hace 10 segundos\n\nSUP BROS - https:imgur.com/yup\nNo hay comentarios\n0 me gusta\n\nJhonny - Hace 10 segundos\n\nFOTON - https:gyazo.com/4y6z3ww\nNo hay comentarios\n0 me gusta\n\n";
-        String resultadoObtenido = muroNuevo.toString();
-        assertEquals(resultadoEsperado, resultadoObtenido);
-    }  
 }
