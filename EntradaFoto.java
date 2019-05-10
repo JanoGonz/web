@@ -37,7 +37,7 @@ public class EntradaFoto extends Comentarios
         return titulo;
     }
     
-    public LocalDateTime getMomento()
+    public String getMomento()
     {
         return getMomentoPublicacion();
     }
@@ -53,10 +53,10 @@ public class EntradaFoto extends Comentarios
     }
     
     public String toHtml(){
-        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>\n";
-        stringHtml += "<p>" + getTituloImagen() + "</p>\n";
+        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>";
+        stringHtml += "<p>" + getTituloImagen() + "</p>";
         stringHtml += "<img src=\""+ getUrlImagen() + "\">";
-        stringHtml += "<p>" + getMeGusta() + "<img src = \"like.png\"></p>";
+        stringHtml += "<p>" + getMeGusta() + " <img src = \"like.png\"></p>";
         stringHtml += getComentariosHtml();
         stringHtml += "</div>";
         return stringHtml;

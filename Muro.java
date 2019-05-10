@@ -39,7 +39,8 @@ public class Muro
         try {
             archivo = new FileWriter ("web.html");
             pr = new PrintWriter (archivo);
-            String head = "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>CaraBook</title>	<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\"></head><body><div class = \"navbar\"><a>Inicio</a></div><div class = \"main\">";
+            String head = "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>CaraBook</title>	<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\"></head><body><div class = \"navbar\"><ul><li><a href= \"#\" class=\"logo\"><img src=\"logo.png\"></a></li><li><a href=\"#\">Inicio</a></li></ul></div><div class = \"main\">";
+;
             pr.println(head);
             String contenidoEntrada = "";
             for(Entrada entradaActual: getEntradas()){

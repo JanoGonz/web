@@ -13,10 +13,8 @@ import org.junit.Test;
  */
 public class MuroTest
 {
-    private muroToHtml muroToHt1;
     private EntradaFoto entradaF1;
     private EntradaTexto entradaT1;
-    private muroToHtml muroToHt2;
     private Muro muro1;
 
     

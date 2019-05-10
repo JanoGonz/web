@@ -1,6 +1,11 @@
 body {
 	font-family: "roboto", "verdana", "arial";
 }
+
+img {
+  max-width:40%;
+  max-height:40%;
+}
 .navbar {
 	overflow: hidden;
 	background-color: #339cff;
@@ -10,33 +15,75 @@ body {
 	margin-left: -10px;
 }
 
-.navbar a {
+.navbar ul{
+    margin: 0;
+    padding:0;
+    line-height: 50px;
+}
+
+.navbar li{
+	list-style: none;	
+	position: relative;
+}
+
+.navbar ul li a {
 	float: left;
 	display: block;
-	padding: 14px 16px;
+	width: 70px;
+	height: 50px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
 }
+
+.navbar ul li a img {
+	float: left;
+	margin-left: 10px;
+	display: block;
+	max-width: 50px;
+	max-height: 50px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+
+.navbar a:hover {
+	background-color: #53ADDA;
+}
+
 
 .main  {
 	margin-top: 60px;
 }
 
 .post {
-	padding: 14px 16px;
+	padding: 14px 20px 20px;
 	margin: auto;
 	margin-top: 10px;
-	width: 80%;
+	width: 60%;
 	background-color: #b3daff;
 	border-radius: 5px;
 }
 
 .comentarios {
-	margin-left: 15px;
-	margin-right: 30%;
+	margin: 15px 15px 15px 15px;
 }
 
 .single-comment {
 	border-style: solid;
 	border-width: 1px 0px 0px 0px;
 	border-color: white;
-	padding-top: 5px;
+	padding: 5px 5px 10px 5px;
+	margin-bottom: -12px;
+}
+
+.single-comment:hover{
+	background-color: #53ADDA;
+}
+
+.time{
+	margin-top: -10px;
+	font-size: 12px;
+	margin-left: 10px;
+	font-style: italic;
 }

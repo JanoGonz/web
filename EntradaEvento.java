@@ -6,9 +6,6 @@ import java.util.List;
 public class EntradaEvento extends Entrada
 {
     private String mensaje;
-    /**
-     * Constructor for objects of class EntradaTexto
-     */
     public EntradaEvento(String autor, String texto)
     {
         super(autor);
@@ -25,7 +22,7 @@ public class EntradaEvento extends Entrada
         return mensaje;
     }
 
-    public LocalDateTime getMomentoPublicacion()
+    public String getMomento()
     {
         return getMomentoPublicacion();
     }
@@ -33,11 +30,10 @@ public class EntradaEvento extends Entrada
     public String toString()
     {
         String post = super.toString() +mensaje + "\n";
-        
         return post;
     }
+    
         public void mostrarPorPantalla(){
         System.out.println(toString());
     }
-
 }

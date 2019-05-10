@@ -25,9 +25,25 @@ public class Entrada
         cantidadMeGusta++;
     }
 
-    public LocalDateTime getMomentoPublicacion()
+    public String getMomentoPublicacion()
     {
-        return momentoPublicacion;
+        String time = "";
+        Period period = Period.between(momentoPublicacion.toLocalDate(), LocalDate.now());
+        Duration dateAgo = Duration.between(momentoPublicacion, LocalDateTime.now());
+        if (dateAgo.getSeconds() < 60){
+            time += "Hace " + dateAgo.getSeconds() + " segundos\n\n";
+        } else {
+            if (dateAgo.toMinutes() < 60){
+                time += "Hace " + dateAgo.toMinutes() + " minutos\n\n";
+            } else {
+                if (dateAgo.toHours() < 24){
+                    time += "Hace " + dateAgo.toHours() + " horas\n\n";
+                } else {
+                    time += "Hace " + period.getDays() + " días\n\n";
+                }
+            }
+        }
+        return time;
     }
 
     public String getUsuario(){

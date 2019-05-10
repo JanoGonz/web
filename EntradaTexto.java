@@ -30,7 +30,7 @@ public class EntradaTexto extends Comentarios
         return mensaje;
     }
 
-    public LocalDateTime getMomento()
+    public String getMomento()
     {
         return getMomentoPublicacion();
     }
@@ -46,9 +46,9 @@ public class EntradaTexto extends Comentarios
     }
     
     public String toHtml(){
-        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>\n";
-        stringHtml += "<p>" + getMensaje() + "</p>\n";
-        stringHtml += "\n<p>" + getMeGusta() + "<img src = \"like.png\"></img></p>";
+        String stringHtml = "<div class = \"post\"><h3>" + getUsuario() + "</h3><p class = \"time\">" + getMomento() + "</p>";
+        stringHtml += "<p>" + getMensaje() + "</p>";
+        stringHtml += "<p>" + getMeGusta() + " <img src = \"like.png\"></img></p>";
         stringHtml += getComentariosHtml();
         stringHtml += "</div>";
         return stringHtml;
